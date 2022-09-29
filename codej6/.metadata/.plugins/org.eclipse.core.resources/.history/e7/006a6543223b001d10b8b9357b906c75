@@ -1,0 +1,27 @@
+package com.example.demo.serviceimplement;
+
+import java.util.List;
+
+import com.example.demo.entites.Customer;
+import com.example.demo.service.CustomerService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import Repositories.CustomerRepository;
+
+@Service
+public class CustomerServiceImp implements CustomerService{
+	@Autowired
+	CustomerRepository cusRepo;
+	@Override
+	public List<Customer> findAll() {
+		return cusRepo.findAll();
+	}
+
+	@Override
+	public Customer findByName(String customerName) {
+		return cusRepo.findById(customerName).get();
+	}
+
+}

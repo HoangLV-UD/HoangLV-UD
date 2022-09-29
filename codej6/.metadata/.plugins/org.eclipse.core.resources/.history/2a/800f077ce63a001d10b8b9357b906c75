@@ -1,0 +1,14 @@
+package com.example.demo.entites;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Employee")
+public class Employee {
+	 private int EmployeeId;
+	 private String EmployeeName;
+	 private float Salary;
+	 private String SupervisorId;
+
+}

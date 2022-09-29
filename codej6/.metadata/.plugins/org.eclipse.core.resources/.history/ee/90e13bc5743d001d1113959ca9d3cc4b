@@ -1,0 +1,22 @@
+package com.example.demo.serviceimplement;
+
+import java.util.List;
+
+import com.example.demo.entites.Employee;
+import com.example.demo.service.EmployeeService;
+
+public class EmployeeServiceImp implements EmployeeService {
+
+	@Override
+	public List<Employee> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee findByName(String EmployeeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

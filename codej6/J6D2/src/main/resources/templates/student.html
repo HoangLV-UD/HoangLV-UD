@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<a th:href="@{|/student?index=${index+1}|}">Next</a>
+	<a th:href="@{|/student?index=${index-1}|}">Back</a>
+	<ul th:object="${sv}">
+		<li th:text="*{name}"></li>
+		<li th:text="*{gender?'Male':'Female'}"></li>
+		<li th:text="*{marks}"></li>
+		<li th:text="*{contact.email}"></li>
+		<li th:text="*{marks > 5 ?'Pass':'Fail'}"></li>
+		<li th:text="*{marks >9? 'Ong vang': 'Ong ga`'}"> </li>
+	</ul>
+</body>
+</html>

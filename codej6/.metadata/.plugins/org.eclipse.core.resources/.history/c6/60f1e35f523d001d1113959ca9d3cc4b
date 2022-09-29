@@ -1,0 +1,22 @@
+package com.example.demo.serviceimplement;
+
+import java.util.List;
+
+import com.example.demo.entites.Product;
+import com.example.demo.service.ProductService;
+
+public class ProductServiceImp implements ProductService{
+
+	@Override
+	public List<Product> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product findByName(String ProductName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

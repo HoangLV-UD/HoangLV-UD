@@ -1,0 +1,16 @@
+package com.example.demo.entites;
+
+import java.util.Date;
+
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Table(name="Orders")
+public class Orders {
+	private int OrderId;
+	private  Date OrderDate;
+	private int Quantity;
+	private float price;
+}

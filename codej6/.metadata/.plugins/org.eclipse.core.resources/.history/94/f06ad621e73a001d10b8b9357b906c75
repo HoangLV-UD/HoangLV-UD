@@ -1,0 +1,42 @@
+package com.example.demo.entites;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Product")
+public class Product {
+	private int  ProductId;
+	private String ProductName;
+	private float Listpice;
+	public int getProductId() {
+		return ProductId;
+	}
+	public void setProductId(int productId) {
+		ProductId = productId;
+	}
+	public String getProductName() {
+		return ProductName;
+	}
+	public void setProductName(String productName) {
+		ProductName = productName;
+	}
+	public float getListpice() {
+		return Listpice;
+	}
+	public void setListpice(float listpice) {
+		Listpice = listpice;
+	}
+	
+	public Product(int productId, String productName, float listpice) {
+		super();
+		ProductId = productId;
+		ProductName = productName;
+		Listpice = listpice;
+	}
+	public Product() {
+		super();
+		//TODO Auto-generated constructor stub
+	}
+	
+}

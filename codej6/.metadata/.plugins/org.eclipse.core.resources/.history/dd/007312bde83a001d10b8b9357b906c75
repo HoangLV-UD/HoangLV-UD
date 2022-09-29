@@ -1,0 +1,55 @@
+package com.example.demo.entites;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="Orders")
+public class Orders {
+	private int OrderId;
+	private int Quantity;
+	private int total;
+	private  Date OrderDate;
+	
+	public int getOrderId() {
+		return OrderId;
+	}
+	public void setOrderId(int orderId) {
+		OrderId = orderId;
+	}
+	public Date getOrderDate() {
+		return OrderDate;
+	}
+	public void setOrderDate(Date orderDate) {
+		OrderDate = orderDate;
+	}
+	public int getQuantity() {
+		return Quantity;
+	}
+	public void setQuantity(int quantity) {
+		Quantity = quantity;
+	}
+	public int gettotal() {
+		return total;
+	}
+	public void settotal(int total) {
+		this.total = total;
+	}
+	
+	public Orders(int orderId, Date orderDate, int quantity, int total) {
+		super();
+		OrderId = orderId;
+		OrderDate = orderDate;
+		Quantity = quantity;
+		this.total = total;
+	}
+	
+	public Orders() {
+		super();
+		//TODO Auto-generated constructor stub
+	}
+	
+}

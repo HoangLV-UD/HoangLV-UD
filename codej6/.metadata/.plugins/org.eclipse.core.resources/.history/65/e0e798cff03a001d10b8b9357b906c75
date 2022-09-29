@@ -1,0 +1,63 @@
+package com.example.demo.entites;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Employee")
+public class Employee {
+	@Id
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	 private int EmployeeId;
+	@Column
+	 private String EmployeeName;
+	@Column
+	 private float Salary;
+	@Column
+	 private String SupervisorId;
+	 
+	 public Employee(int employeeId, String employeeName, float salary, String supervisorId) {
+		super();
+		EmployeeId = employeeId;
+		EmployeeName = employeeName;
+		Salary = salary;
+		SupervisorId = supervisorId;
+	}
+	
+	 
+	 
+	 public Employee() {
+		super();
+		//TODO Auto-generated constructor stub
+	}
+	public int getEmployeeId() {
+		return EmployeeId;
+	}
+	public void setEmployeeId(int employeeId) {
+		EmployeeId = employeeId;
+	}
+	public String getEmployeeName() {
+		return EmployeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		EmployeeName = employeeName;
+	}
+	public float getSalary() {
+		return Salary;
+	}
+	public void setSalary(float salary) {
+		Salary = salary;
+	}
+	public String getSupervisorId() {
+		return SupervisorId;
+	}
+	public void setSupervisorId(String supervisorId) {
+		SupervisorId = supervisorId;
+	}
+	
+
+}

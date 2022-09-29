@@ -1,0 +1,71 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import com.example.demo.Repoitories.OrdersRepository;
+import com.example.demo.entites.Orders;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class OrdersController {
+
+	@Autowired
+	OrdersRepository ordersRepository;
+	
+//	@GetMapping("/orders")
+//	public List<Orders> getAll(){
+//		List<Orders> lstList = ordersRepository.findAll();	
+//		//JSONParser jsonParser = JSONParser. //is not working
+//		return lstList;
+//	}
+	@GetMapping("/orders")
+	public ResponseEntity<List<Orders>> getAll(){
+		List<Orders> lstList = ordersRepository.findAll();
+		return ResponseEntity.ok().body(lstList); //is not working
+	}
+	@GetMapping("/order/{id}")
+	public Orders getbyId(@PathVariable (name = "id") Integer id, Orders o) {
+		
+		ordersRepository.findById(id);
+		o.setOrderId(id);
+		//ordersRepository.getById(String.valueOf(o));
+		return o;
+	}
+//	@PostMapping("/order")
+//	public Orders create(@RequestBody Orders or) {
+//		Orders orders = ordersRepository.save(or);
+//		orders.setCustomer(or.getCustomer());
+//		orders.setEmployee(or.getEmployee());
+//		orders.setTotal(or.getTotal());  //not working
+//		orders.setOrderDate(or.getOrderDate());
+//		return orders;
+//	}
+	
+	@PostMapping("/order")
+	public ResponseEntity<Orders> create(@RequestBody Orders orders ){
+		Orders orders2 = ordersRepository.save(orders);// is not working
+		return ResponseEntity.ok(orders2);
+	}
+	
+	@PutMapping("/order/{id}")
+	public ResponseEntity<Orders> update(@PathVariable(name = "id", required = false)  Integer id, @RequestBody Orders or){
+		or.setOrderId(id);
+		ordersRepository.save(or);
+		return ResponseEntity.ok(or);
+	}
+	@DeleteMapping("/order/{id}")
+	public ResponseEntity<Void> delete(@PathVariable(name = "id") Integer id, Orders or ){
+		or.setOrderId(id);
+		ordersRepository.delete(or);
+		return ResponseEntity.ok().build();
+	}
+}

@@ -1,0 +1,42 @@
+package com.example.demo.entites;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+
+@Entity
+@Table(name = "Customer")
+public class Customer {
+	@Id
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	private int CustomerId;
+	@Column
+	private String CustomerName;
+	public int getCustomerId() {
+		return CustomerId;
+	}
+	public void setCustomerId(int customerId) {
+		CustomerId = customerId;
+	}
+	public String getCustomerName() {
+		return CustomerName;
+	}
+	public void setCustomerName(String customerName) {
+		CustomerName = customerName;
+	}
+	public Customer(int customerId, String customerName) {
+		super();
+		CustomerId = customerId;
+		CustomerName = customerName;
+	}
+	public Customer() {
+		super();
+	}
+	
+}

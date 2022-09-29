@@ -1,0 +1,11 @@
+package Repositories;
+
+import com.example.demo.entites.Customer;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+@ComponentScan({"com.seic.deliveryautomation.mapper"})
+public interface CustomerRepository extends JpaRepository<Customer, String> {
+
+}

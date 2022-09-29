@@ -1,0 +1,13 @@
+package com.example.demo.Repoitories;
+
+import com.example.demo.entites.Customer;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerRepository extends JpaRepository<Customer, String> {
+	
+//	@Query("select c from Customer c where CustomerId = ?1")
+//	Customer findById(Customer customerid);
+	
+
+}

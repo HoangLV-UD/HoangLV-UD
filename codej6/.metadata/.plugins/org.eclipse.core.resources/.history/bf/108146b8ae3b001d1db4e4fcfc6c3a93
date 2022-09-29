@@ -1,0 +1,36 @@
+package com.example.demo.serviceimplement;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.demo.Repoitories.CustomerRepository;
+import com.example.demo.entites.Customer;
+import com.example.demo.service.CustomerService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomerServiceImp implements CustomerService{
+	@Autowired
+	CustomerRepository customerRepository;
+	@Override
+	public List<Customer> findAll() {
+		return customerRepository.findAll();
+	}
+
+	@Override
+	public Customer findByName(String customerName) {
+		return customerRepository.findById(customerName).get();
+	}
+
+	@Override
+	public Customer create(Customer customer) {
+		
+		customerRepository.save(customer);
+		return customer;
+	}
+	
+	
+
+}
