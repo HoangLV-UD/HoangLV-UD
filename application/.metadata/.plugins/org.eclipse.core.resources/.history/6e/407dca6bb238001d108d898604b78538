@@ -1,0 +1,11 @@
+package DomainObject;
+
+import java.util.Date;
+
+public class Orders {
+	private int OrderId;
+	private Date OrderDate;
+	private int CustomerId;
+	private int EmployeeId;
+	//private String Total; ? chua biet de thuoc tinh gi
+}

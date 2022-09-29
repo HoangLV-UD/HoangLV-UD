@@ -1,0 +1,6 @@
+package DomainObject;
+
+public class Customer {
+	private int CustomerId;
+	private String CustomerName;
+}

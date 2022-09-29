@@ -1,0 +1,193 @@
+package userInterface;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import Dao.CustomerDao;
+import DomainObject.Customer;
+import JDBC.jdbc;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
+import javax.swing.JMenu;
+import javax.swing.JTextField;
+import javax.swing.JTabbedPane;
+import javax.swing.JComboBox;
+import javax.swing.JToolBar;
+import javax.swing.JLayeredPane;
+import javax.swing.JEditorPane;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class main extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtNameCustomer;
+	private JTable tblCustomer;
+	CustomerDao cusDao = new CustomerDao();
+	
+	
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					main frame = new main();
+					frame.setVisible(true);
+					
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public main() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1074, 529);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(10, 10, 1040, 472);
+		contentPane.add(tabbedPane);
+		
+		JPanel Customer_1 = new JPanel();
+		tabbedPane.addTab("New tab", null, Customer_1, null);
+		Customer_1.setLayout(null);
+		
+		txtNameCustomer = new JTextField();
+		txtNameCustomer.setBounds(133, 19, 96, 19);
+		Customer_1.add(txtNameCustomer);
+		txtNameCustomer.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Name Customer");
+		lblNewLabel_1.setBounds(36, 22, 74, 13);
+		Customer_1.add(lblNewLabel_1);
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				insert();
+			}
+		});
+		btnAdd.setBounds(239, 18, 85, 21);
+		Customer_1.add(btnAdd);
+		
+		JButton btnUpdate = new JButton("Update");
+		btnUpdate.setBounds(331, 18, 85, 21);
+		Customer_1.add(btnUpdate);
+		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setBounds(425, 18, 85, 21);
+		Customer_1.add(btnDelete);
+		
+		tblCustomer = new JTable();
+		tblCustomer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//click table
+				if(e.getClickCount() ==1) {
+					int row = tblCustomer.getSelectedColumn();
+					String idcustomer = tblCustomer.getValueAt(row, 0).toString();
+					 Customer cus = cusDao.selectId(idcustomer);
+					 tblCustomer.setRowSelectionInterval(row, row);
+				}
+			}
+		});
+		tblCustomer.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"", null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+			},
+			new String[] {
+				"CustomerID", "CustomerName"
+			}
+		));
+		tblCustomer.setBounds(59, 92, 657, 234);
+		Customer_1.add(tblCustomer);
+
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_2, null);
+		
+		JPanel panel_3 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_3, null);
+		
+		JPanel panel_4 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_4, null);
+		
+		JPanel Customer = new JPanel();
+		tabbedPane.addTab("New tab", null, Customer, null);
+		
+		JLabel lblNewLabel = new JLabel("Name Customer");
+		Customer.add(lblNewLabel);
+		
+		loadtable();
+	}
+
+	public void loadtable() {
+		DefaultTableModel model = (DefaultTableModel) tblCustomer.getModel();
+		model.setRowCount(0);
+		try {
+			List<Customer> lst = cusDao.selectAll();
+			for(Customer c : lst) {
+				Object[] row = {
+						c.getCustomerId(),
+						c.getCustomerName()
+				};
+				model.addRow(row);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public Customer getForm() {
+		Customer c  = new Customer();
+		c.setCustomerName(txtNameCustomer.getText());
+		
+		return c;
+	}
+	public void insert() {
+		try {
+			Customer c = getForm();
+			cusDao.insert(c);
+			JOptionPane.showMessageDialog(this, "them thanh cong");
+			loadtable();
+			
+		} catch (Exception e) {
+		e.printStackTrace();
+			// TODO: handle exception
+		}
+	}
+	public void setForm(Customer c) {
+		txtNameCustomer.setText(c.getCustomerName());
+	}
+}
+

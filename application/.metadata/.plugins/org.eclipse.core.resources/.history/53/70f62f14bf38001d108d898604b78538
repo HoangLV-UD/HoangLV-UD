@@ -1,0 +1,44 @@
+package Dao;
+
+import java.util.List;
+
+import DomainObject.Customer;
+
+public class CustomerDao implements InterfaceCustomer{
+	private final String insert ="insert into Customer (CustomerId, CustomerName) value (?,?)";
+	private final String  update= "update Customer set CustomerName = ? Where CustomerId = ?";
+	private final String delete = "delete from Customer Where CustomerId= ?";
+	private final String selectAll= "select *from Customer";
+	private final String selectById ="select *form Customer where CustomerId=?";
+	@Override
+	public void insert(Customer c) {
+		
+		
+	}
+
+	@Override
+	public void update(Customer c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Customer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Customer> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer selectId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

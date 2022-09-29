@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author hoang
+ *
+ */
+module SaleManagermentSystem {
+	requires java.desktop;
+}

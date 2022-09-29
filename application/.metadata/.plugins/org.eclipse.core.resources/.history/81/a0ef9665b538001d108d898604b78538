@@ -1,0 +1,41 @@
+package Dao;
+
+import java.util.List;
+
+import DomainObject.Customer;
+
+public class CustomerDao implements InterfaceCustomer{
+	
+
+	@Override
+	public void insert(Customer c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Customer c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Customer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Customer> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer selectId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

@@ -1,0 +1,16 @@
+package Dao;
+
+import DomainObject.Customer;
+import java.util.List;
+
+public interface InterfaceCustomer {
+	abstract public void insert(Customer c);
+	
+	abstract public void update(Customer c);
+	
+	abstract public void delete(Customer id);
+	
+	abstract public  List<Customer> selectAll();
+	
+	abstract public Customer selectId(String id);
+}

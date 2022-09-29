@@ -1,0 +1,7 @@
+package DomainObject;
+
+public class Product {
+	private int ProductId;
+	private String ProductName;
+	private float ListPrice;
+}

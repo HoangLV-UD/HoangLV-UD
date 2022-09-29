@@ -1,0 +1,8 @@
+package DomainObject;
+
+public class LineItem {
+	private int OrderId;
+	private int ProductId;
+	private int Quantity;
+	private float Price;
+}
