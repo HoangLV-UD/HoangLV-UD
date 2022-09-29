@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc5ec720-f7f9-4ce2-a9c9-96d3ea17f62f">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="MAHD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[HD1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MAHD2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[HD1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Test1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[HD1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     HOADON."MAHD" AS HOADON_MAHD,
+     HOADON."MAKH" AS HOADON_MAKH,
+     HOADON."TENKH" AS HOADON_TENKH,
+     HOADON."SDT" AS HOADON_SDT,
+     HOADON."MANV" AS HOADON_MANV,
+     HOADON."NGAYTAO" AS HOADON_NGAYTAO,
+     HOADON."TRANGTHAI" AS HOADON_TRANGTHAI,
+     HOADON."HTTHANHTOAN" AS HOADON_HTTHANHTOAN,
+     HOADON."TIENSHIP" AS HOADON_TIENSHIP,
+     HOADON."TONGTIEN" AS HOADON_TONGTIEN,
+     HOADON."DIACHI" AS HOADON_DIACHI,
+     HOADON."GHICHU" AS HOADON_GHICHU,
+     KHACHHANG."MAKH" AS KHACHHANG_MAKH,
+     KHACHHANG."HOTEN" AS KHACHHANG_HOTEN,
+     NHANVIEN."MANV" AS NHANVIEN_MANV,
+     NHANVIEN."HOTEN" AS NHANVIEN_HOTEN,
+     CTHOADON."MAHD" AS CTHOADON_MAHD,
+     CTHOADON."MASP" AS CTHOADON_MASP,
+     CTHOADON."SOLUONG" AS CTHOADON_SOLUONG,
+     CTHOADON."DONVI" AS CTHOADON_DONVI,
+     CTHOADON."DONGIA" AS CTHOADON_DONGIA,
+     CTHOADON."THANHTIEN" AS CTHOADON_THANHTIEN,
+     CTHOADON."TRANGTHAI" AS CTHOADON_TRANGTHAI,
+     CTHOADON."GHICHU" AS CTHOADON_GHICHU,
+     KHACHHANG."SDT" AS KHACHHANG_SDT
+FROM
+     "dbo"."KHACHHANG" KHACHHANG INNER JOIN "dbo"."HOADON" HOADON ON KHACHHANG."MAKH" = HOADON."MAKH"
+     INNER JOIN "dbo"."NHANVIEN" NHANVIEN ON HOADON."MANV" = NHANVIEN."MANV"
+     INNER JOIN "dbo"."CTHOADON" CTHOADON ON HOADON."MAHD" = CTHOADON."MAHD"
+WHERE
+     HOADON."MAHD" = $P{MAHD2}]]>
+	</queryString>
+	<field name="HOADON_MAHD" class="java.lang.String"/>
+	<field name="HOADON_MAKH" class="java.lang.String"/>
+	<field name="HOADON_TENKH" class="java.lang.String"/>
+	<field name="HOADON_SDT" class="java.lang.String"/>
+	<field name="HOADON_MANV" class="java.lang.String"/>
+	<field name="HOADON_NGAYTAO" class="java.sql.Timestamp"/>
+	<field name="HOADON_TRANGTHAI" class="java.lang.Integer"/>
+	<field name="HOADON_HTTHANHTOAN" class="java.lang.Boolean"/>
+	<field name="HOADON_TIENSHIP" class="java.math.BigDecimal"/>
+	<field name="HOADON_TONGTIEN" class="java.math.BigDecimal"/>
+	<field name="HOADON_DIACHI" class="java.lang.String"/>
+	<field name="HOADON_GHICHU" class="java.lang.String"/>
+	<field name="KHACHHANG_MAKH" class="java.lang.String"/>
+	<field name="KHACHHANG_HOTEN" class="java.lang.String"/>
+	<field name="NHANVIEN_MANV" class="java.lang.String"/>
+	<field name="NHANVIEN_HOTEN" class="java.lang.String"/>
+	<field name="CTHOADON_MAHD" class="java.lang.String"/>
+	<field name="CTHOADON_MASP" class="java.lang.String"/>
+	<field name="CTHOADON_SOLUONG" class="java.lang.Integer"/>
+	<field name="CTHOADON_DONVI" class="java.lang.String"/>
+	<field name="CTHOADON_DONGIA" class="java.math.BigDecimal"/>
+	<field name="CTHOADON_THANHTIEN" class="java.math.BigDecimal"/>
+	<field name="CTHOADON_TRANGTHAI" class="java.lang.Boolean"/>
+	<field name="CTHOADON_GHICHU" class="java.lang.String"/>
+	<field name="KHACHHANG_SDT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="195" y="13" width="176" height="47" uuid="d3a2fcd1-4a5e-4fae-bdaf-5d07fb8aae06"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[HÓA ĐƠN BÁN HÀNG]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="176" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="0" width="100" height="20" uuid="908863c3-2d08-4b1b-a96b-1536b3573f6e"/>
+				<text><![CDATA[Số hóa đơn:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="0" width="104" height="20" uuid="cc4039ff-5642-4ab9-bf08-017753f75ff6"/>
+				<textFieldExpression><![CDATA[$F{HOADON_MAHD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="24" width="100" height="20" uuid="11697e53-94d3-4ca7-b395-e5655c139f03"/>
+				<text><![CDATA[Ngày tạo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="65" width="100" height="20" uuid="c762ee22-6b57-4d27-bcf9-5aab59fd9cc8"/>
+				<text><![CDATA[Khách hàng:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="106" width="100" height="20" uuid="1ce2f659-cdf6-4e57-94b7-3a5013e1616c"/>
+				<text><![CDATA[Nhân viên:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="143" width="100" height="20" uuid="ca1938a6-7e87-4d58-a2b6-c9b425f3cfb2"/>
+				<text><![CDATA[Ghi chú:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="148" y="106" width="104" height="20" uuid="7b45d694-e982-48f9-a25b-f922b6c37666"/>
+				<textFieldExpression><![CDATA[$F{HOADON_MANV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="143" width="276" height="20" uuid="843c1366-9d6f-40f8-9304-324663b0f7de"/>
+				<textFieldExpression><![CDATA[$F{HOADON_GHICHU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="24" width="106" height="20" uuid="7e579b95-3980-4874-a2eb-6a8ec79da0d1"/>
+				<textFieldExpression><![CDATA[$F{HOADON_NGAYTAO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="65" width="106" height="20" uuid="1efd6d04-9aa5-4de1-9241-ad06788d6a73"/>
+				<textFieldExpression><![CDATA[$F{HOADON_TENKH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="65" width="121" height="20" uuid="f4898932-d48e-44c6-bd41-be39fab4e67d"/>
+				<textFieldExpression><![CDATA[$F{HOADON_SDT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="15" y="175" width="519" height="1" uuid="83fde068-a9cd-4dce-b01b-8e0ce745b60e"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="13" y="13" width="78" height="20" uuid="2f81235d-8d03-4a09-821d-9d2189acd0fa"/>
+				<textFieldExpression><![CDATA[Mã hàng
+]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="13" width="100" height="20" uuid="73e8974a-5326-485d-b7fc-17b2def641d6"/>
+				<textFieldExpression><![CDATA[Tên hàng]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="13" width="100" height="20" uuid="1eddbcaa-3e45-4d00-a916-a0c2d2f20969"/>
+				<textFieldExpression><![CDATA[Giá bán]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="13" width="100" height="20" uuid="9e6443b7-f5d8-43ce-87b1-ddcf8847bd10"/>
+				<textFieldExpression><![CDATA[Số lượng]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="13" width="100" height="20" uuid="7163137c-4863-49de-9b03-ae236d9f4753"/>
+				<textFieldExpression><![CDATA[Thành tiền]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="15" y="42" width="519" height="1" uuid="6ed22fcc-0484-4d30-b47c-adf712c228f4"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
